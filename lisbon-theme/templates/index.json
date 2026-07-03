@@ -1,0 +1,262 @@
+{
+  "sections": {
+    "hero_banner": {
+      "type": "image-banner",
+      "blocks": {
+        "heading": {
+          "type": "heading",
+          "settings": {
+            "heading": "Tu ritual de belleza coreano, en casa",
+            "heading_size": "h0"
+          }
+        },
+        "text": {
+          "type": "text",
+          "settings": {
+            "text": "Skincare coreano auténtico y esenciales para el hogar, elegidos con cariño.",
+            "text_style": "body"
+          }
+        },
+        "buttons": {
+          "type": "buttons",
+          "settings": {
+            "button_label_1": "Descubrir skincare",
+            "button_link_1": "shopify://collections/skincare",
+            "button_style_secondary_1": false,
+            "button_label_2": "Para el hogar",
+            "button_link_2": "shopify://collections/hogar",
+            "button_style_secondary_2": true
+          }
+        }
+      },
+      "block_order": ["heading", "text", "buttons"],
+      "settings": {
+        "image_overlay_opacity": 20,
+        "image_height": "large",
+        "desktop_content_position": "middle-center",
+        "show_text_box": true,
+        "image_behavior": "none",
+        "desktop_content_alignment": "center",
+        "color_scheme": "scheme-3",
+        "mobile_content_alignment": "center",
+        "stack_images_on_mobile": true,
+        "show_text_below": false
+      }
+    },
+    "intro": {
+      "type": "rich-text",
+      "blocks": {
+        "heading": {
+          "type": "heading",
+          "settings": {
+            "heading": "Belleza que nace del cuidado",
+            "heading_size": "h1"
+          }
+        },
+        "text": {
+          "type": "text",
+          "settings": {
+            "text": "<p>En Lisbon creemos en los rituales lentos: pieles sanas y hogares que se sienten bien. Seleccionamos skincare coreano de fórmulas suaves y objetos útiles y bonitos para tu día a día.</p>"
+          }
+        }
+      },
+      "block_order": ["heading", "text"],
+      "settings": {
+        "desktop_content_position": "center",
+        "content_alignment": "center",
+        "color_scheme": "scheme-1",
+        "full_width": true
+      }
+    },
+    "featured_skincare": {
+      "type": "featured-collection",
+      "settings": {
+        "title": "Favoritos de skincare",
+        "heading_size": "h1",
+        "description": "",
+        "show_description": false,
+        "collection": "skincare",
+        "products_to_show": 4,
+        "columns_desktop": 4,
+        "color_scheme": "scheme-1",
+        "full_width": false,
+        "show_view_all": true,
+        "view_all_style": "solid",
+        "image_ratio": "portrait",
+        "image_shape": "default",
+        "show_secondary_image": true,
+        "show_vendor": false,
+        "show_rating": false,
+        "quick_add": "standard",
+        "columns_mobile": "2"
+      }
+    },
+    "categorias": {
+      "type": "collection-list",
+      "blocks": {
+        "cat_skincare": {
+          "type": "featured_collection",
+          "settings": {
+            "collection": "skincare"
+          }
+        },
+        "cat_hogar": {
+          "type": "featured_collection",
+          "settings": {
+            "collection": "hogar"
+          }
+        }
+      },
+      "block_order": ["cat_skincare", "cat_hogar"],
+      "settings": {
+        "title": "Explora por categoría",
+        "heading_size": "h1",
+        "image_ratio": "square",
+        "columns_desktop": 2,
+        "color_scheme": "scheme-5",
+        "show_view_all": false,
+        "columns_mobile": "2"
+      }
+    },
+    "beneficios": {
+      "type": "multicolumn",
+      "blocks": {
+        "col_1": {
+          "type": "column",
+          "settings": {
+            "title": "100% auténtico",
+            "text": "<p>Productos coreanos originales, directo de marca. Sin falsificaciones.</p>",
+            "link_label": "",
+            "link": ""
+          }
+        },
+        "col_2": {
+          "type": "column",
+          "settings": {
+            "title": "Envío con cariño",
+            "text": "<p>Empaque cuidado y seguro para que tu ritual llegue impecable.</p>",
+            "link_label": "",
+            "link": ""
+          }
+        },
+        "col_3": {
+          "type": "column",
+          "settings": {
+            "title": "Rituales que funcionan",
+            "text": "<p>Selección curada: fórmulas suaves y objetos útiles y bonitos.</p>",
+            "link_label": "",
+            "link": ""
+          }
+        }
+      },
+      "block_order": ["col_1", "col_2", "col_3"],
+      "settings": {
+        "title": "Por qué Lisbon",
+        "heading_size": "h1",
+        "image_width": "half",
+        "image_ratio": "adapt",
+        "columns_desktop": 3,
+        "column_alignment": "center",
+        "background_style": "none",
+        "color_scheme": "scheme-2",
+        "columns_mobile": "1"
+      }
+    },
+    "ritual": {
+      "type": "image-with-text",
+      "blocks": {
+        "heading": {
+          "type": "heading",
+          "settings": {
+            "heading": "El ritual coreano, paso a paso",
+            "heading_size": "h1"
+          }
+        },
+        "text": {
+          "type": "text",
+          "settings": {
+            "text": "<p>Limpieza, tónico, esencia, sérum e hidratación. Te ayudamos a construir la rutina ideal para tu piel, sin complicarte.</p>"
+          }
+        },
+        "button": {
+          "type": "button",
+          "settings": {
+            "button_label": "Ver skincare",
+            "button_link": "shopify://collections/skincare"
+          }
+        }
+      },
+      "block_order": ["heading", "text", "button"],
+      "settings": {
+        "height": "large",
+        "desktop_image_width": "medium",
+        "layout": "text_first",
+        "content_layout": "no-overlap",
+        "desktop_content_position": "middle",
+        "desktop_content_alignment": "left",
+        "section_color_scheme": "scheme-1",
+        "color_scheme": "scheme-5"
+      }
+    },
+    "featured_hogar": {
+      "type": "featured-collection",
+      "settings": {
+        "title": "Esenciales para tu hogar",
+        "heading_size": "h1",
+        "description": "",
+        "show_description": false,
+        "collection": "hogar",
+        "products_to_show": 4,
+        "columns_desktop": 4,
+        "color_scheme": "scheme-1",
+        "full_width": false,
+        "show_view_all": true,
+        "view_all_style": "solid",
+        "image_ratio": "portrait",
+        "image_shape": "default",
+        "show_secondary_image": true,
+        "show_vendor": false,
+        "show_rating": false,
+        "quick_add": "standard",
+        "columns_mobile": "2"
+      }
+    },
+    "newsletter": {
+      "type": "newsletter",
+      "blocks": {
+        "heading": {
+          "type": "heading",
+          "settings": {
+            "heading": "Únete al club Lisbon",
+            "heading_size": "h1"
+          }
+        },
+        "paragraph": {
+          "type": "paragraph",
+          "settings": {
+            "text": "<p>10% de descuento en tu primera compra, más rituales, lanzamientos y consejos de skincare.</p>"
+          }
+        },
+        "email_form": {
+          "type": "email_form",
+          "settings": {}
+        }
+      },
+      "block_order": ["heading", "paragraph", "email_form"],
+      "settings": {
+        "color_scheme": "scheme-4",
+        "full_width": true
+      }
+    }
+  },
+  "order": [
+    "hero_banner",
+    "intro",
+    "featured_skincare",
+    "categorias",
+    "beneficios",
+    "ritual",
+    "featured_hogar",
+    "newsletter"
+  ]
+}
