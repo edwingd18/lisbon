@@ -1,0 +1,5 @@
+
+# Basura de Windows/Git Bash
+bash.exe.stackdump
+*.stackdump
+node_modules/
