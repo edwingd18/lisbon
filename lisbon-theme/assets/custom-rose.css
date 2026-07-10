@@ -1,7 +1,7 @@
 /* ============================================================
    Tienda Lisbon — Sistema de diseño "Blanco galería"
-   Skincare coreano (Skin1004 · Celimax) · base casi blanca,
-   oro rosa como acento único, color de ingrediente por marca.
+   Skincare coreano (SKIN1004) · base casi blanca,
+   oro rosa como acento único, verde centella como color de ingrediente.
    Inspirado en somiskincare / skin1004 / celimax:
    mucho aire, tarjetas limpias, tipografía sans ligera.
    Cargado DESPUÉS de base.css para sobrescribir a Dawn.
@@ -24,9 +24,8 @@
   --rose-gold: #C0876F;
   --rose-gold-deep: #A86A54;
 
-  /* Color de ingrediente por marca */
+  /* Color de ingrediente (SKIN1004) */
   --brand-skin1004: #7C9A6E; /* verde centella */
-  --brand-celimax: #C56B57;  /* rojo noni */
 
   /* Escala de tracking unificada para versalitas */
   --track-caps: 0.08em;    /* navegación, enlaces "ver todo" */
@@ -342,13 +341,8 @@ html {
   --ingredient: var(--brand-skin1004);
   --ingredient-rgb: 124, 154, 110;
 }
-[id$="__ingrediente_celimax"] {
-  --ingredient: var(--brand-celimax);
-  --ingredient-rgb: 197, 107, 87;
-}
 
-[id$="__ingrediente_skin1004"] .image-with-text__content,
-[id$="__ingrediente_celimax"] .image-with-text__content {
+[id$="__ingrediente_skin1004"] .image-with-text__content {
   background: rgba(var(--ingredient-rgb), 0.06);
   background: color-mix(in srgb, var(--ingredient) 7%, #FCFBFA);
   border-inline-start: 2px solid var(--ingredient);
@@ -357,16 +351,14 @@ html {
 }
 
 /* Eyebrow del ingrediente en su color de marca ---------------- */
-[id$="__ingrediente_skin1004"] .image-with-text__text--caption,
-[id$="__ingrediente_celimax"] .image-with-text__text--caption {
+[id$="__ingrediente_skin1004"] .image-with-text__text--caption {
   color: var(--ingredient);
   font-weight: 600;
   letter-spacing: 0.14em;
 }
 
 /* Botón: lavado sutil del color de ingrediente ---------------- */
-[id$="__ingrediente_skin1004"] .button,
-[id$="__ingrediente_celimax"] .button {
+[id$="__ingrediente_skin1004"] .button {
   --color-button: var(--ingredient-rgb);
   --color-button-text: 46, 42, 43;
   --alpha-button-background: 0.14;
