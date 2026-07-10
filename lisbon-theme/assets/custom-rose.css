@@ -688,6 +688,57 @@ input[type="radio"] {
 }
 
 /* ============================================================
+   COLECCIÓN Y FICHA — detalles que empujan a la compra
+   ============================================================ */
+
+/* Marca sobre el nombre del producto: eyebrow oro rosa -------- */
+.card__information .caption-with-letter-spacing,
+.card-information .caption-with-letter-spacing {
+  text-transform: uppercase;
+  letter-spacing: 0.1em;
+  font-size: 1.1rem;
+  font-weight: 500;
+  color: var(--rose-gold-deep);
+}
+
+/* Cabecera de colección: titular ligero, descripción legible -- */
+.collection-hero__title {
+  font-weight: 300;
+  font-size: clamp(3rem, 2.2rem + 2vw, 4.6rem);
+  letter-spacing: 0.005em;
+}
+.collection-hero__description,
+.collection__description {
+  max-inline-size: 62ch;
+}
+
+/* Filtros: píldoras suaves con hover de marca ----------------- */
+.facets__summary,
+.facet-checkbox {
+  transition: color 0.2s ease;
+}
+.facets__summary:hover,
+.facet-checkbox:hover {
+  color: var(--rose-gold-deep);
+}
+.active-facets__button,
+.active-facets__button-remove {
+  border-radius: 999px;
+}
+
+/* Botón de compra pegajoso en móvil: siempre a mano ----------- */
+@media screen and (max-width: 749px) {
+  .product-form__buttons {
+    position: sticky;
+    bottom: 1rem;
+    z-index: 4;
+  }
+  .product-form__submit {
+    box-shadow: 0 10px 30px -10px rgba(46, 42, 43, 0.45);
+  }
+}
+
+/* ============================================================
    RESPONSIVE — móvil (donde compra la mayoría)
    ============================================================ */
 @media screen and (max-width: 749px) {
