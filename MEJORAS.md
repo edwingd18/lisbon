@@ -17,6 +17,16 @@
   - [ ] Actualizar el menú `main-menu`
 - [ ] **Configuración regional**: zona de envío Colombia + tarifas, mercado principal Colombia,
       dirección de la tienda y moneda **COP** (`Configuración → General`).
+- [ ] **Logística de envíos (agregador de transportadoras)** — una sola app que cotiza,
+      genera guías y actualiza el tracking en Shopify:
+  - **Mipaquete.com** ⭐ recomendado para empezar: app en el App Store de Shopify, sin mínimos
+    de volumen, tarifas negociadas con Servientrega / Interrapidísimo / Coordinadora / TCC,
+    y soporta **recaudo contraentrega** (clave en Colombia).
+  - **Envia.com**: agregador alternativo (LATAM), comparador de tarifas y guías. Comparar precios.
+  - **Melonn / Cubbo** (fulfillment 3PL): para más adelante — almacenan, empacan y despachan
+    por ti. Tiene sentido con decenas de pedidos al mes, no para arrancar.
+  - Flujo: pedido en Shopify → la app lo detecta → transportadora (manual o regla automática)
+    → imprimir guía → el cliente recibe tracking solo. Verificar precios actuales antes de decidir.
 
 ## 🟠 Para vender más (alto impacto, poco esfuerzo)
 
