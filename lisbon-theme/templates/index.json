@@ -48,7 +48,7 @@
         "msg_envio": {
           "type": "mensaje",
           "settings": {
-            "texto": "Envío en 24-72h a toda España"
+            "texto": "Envío a toda Colombia"
           }
         },
         "msg_original": {
@@ -404,7 +404,7 @@
           "settings": {
             "heading": "¿Cuánto tarda el envío?",
             "icon": "none",
-            "row_content": "<p>Entre 24 y 72 horas a toda España. Preparamos cada pedido con mimo para que tu ritual llegue impecable.</p>"
+            "row_content": "<p>Entre 2 y 5 días hábiles a toda Colombia, según la ciudad. Preparamos cada pedido con mimo para que tu ritual llegue impecable.</p>"
           }
         },
         "faq_devoluciones": {
