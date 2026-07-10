@@ -8,6 +8,51 @@
     "theme_support_url": "https://support.shopify.com/"
   },
   {
+    "name": "Tienda Lisbon",
+    "settings": [
+      {
+        "type": "header",
+        "content": "Botón de WhatsApp"
+      },
+      {
+        "type": "checkbox",
+        "id": "whatsapp_enable",
+        "label": "Mostrar botón flotante de WhatsApp",
+        "default": true
+      },
+      {
+        "type": "text",
+        "id": "whatsapp_number",
+        "label": "Número de WhatsApp",
+        "info": "Con indicativo del país y sin espacios ni símbolos. Ej: 573178798078",
+        "default": "573178798078"
+      },
+      {
+        "type": "text",
+        "id": "whatsapp_message",
+        "label": "Mensaje precargado",
+        "default": "Hola, vengo de la tienda Lisbon y quiero una asesoría"
+      },
+      {
+        "type": "header",
+        "content": "Barra de envío gratis (carrito)"
+      },
+      {
+        "type": "checkbox",
+        "id": "free_shipping_enable",
+        "label": "Mostrar barra de progreso de envío gratis",
+        "default": true
+      },
+      {
+        "type": "number",
+        "id": "free_shipping_threshold",
+        "label": "Monto para envío gratis",
+        "info": "En la moneda de la tienda, sin puntos ni decimales. Ej: 100000",
+        "default": 100000
+      }
+    ]
+  },
+  {
     "name": "t:settings_schema.logo.name",
     "settings": [
       {

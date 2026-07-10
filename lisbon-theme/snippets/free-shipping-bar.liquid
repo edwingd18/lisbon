@@ -1,0 +1,32 @@
+{% comment %}
+  Tienda Lisbon — Barra de progreso hacia el envío gratis.
+  Configurable en Configuración del theme → "Tienda Lisbon".
+  Renderizada dentro de .drawer__inner del cart drawer, por lo que
+  se actualiza sola cada vez que Dawn re-renderiza el carrito.
+{% endcomment %}
+
+{%- if settings.free_shipping_enable and settings.free_shipping_threshold > 0 and cart != empty -%}
+  {%- liquid
+    assign umbral = settings.free_shipping_threshold | times: 100
+    assign restante = umbral | minus: cart.total_price
+    assign progreso = cart.total_price | times: 100 | divided_by: umbral
+    if progreso > 100
+      assign progreso = 100
+    endif
+  -%}
+  <div class="free-shipping-bar" role="status">
+    <p class="free-shipping-bar__text">
+      {%- if restante > 0 -%}
+        Te faltan <strong>{{ restante | money }}</strong> para el envío gratis
+      {%- else -%}
+        <span class="free-shipping-bar__check" aria-hidden="true">✓</span> Tu pedido tiene <strong>envío gratis</strong>
+      {%- endif -%}
+    </p>
+    <div class="free-shipping-bar__track" aria-hidden="true">
+      <div
+        class="free-shipping-bar__fill{% if restante <= 0 %} free-shipping-bar__fill--complete{% endif %}"
+        style="width: {{ progreso }}%;"
+      ></div>
+    </div>
+  </div>
+{%- endif -%}

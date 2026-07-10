@@ -772,6 +772,87 @@ input[type="radio"] {
 }
 
 /* ============================================================
+   WHATSAPP — botón flotante de asesoría
+   ============================================================ */
+.whatsapp-float {
+  position: fixed;
+  right: 1.8rem;
+  bottom: 1.8rem;
+  z-index: 900; /* por debajo del cart drawer (1000) */
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 5.6rem;
+  height: 5.6rem;
+  border-radius: 50%;
+  background: #25D366;
+  color: #fff;
+  box-shadow: 0 10px 30px -8px rgba(37, 211, 102, 0.55);
+  transition: transform 0.25s cubic-bezier(0.16, 1, 0.3, 1), box-shadow 0.25s ease;
+}
+.whatsapp-float svg {
+  width: 2.8rem;
+  height: 2.8rem;
+}
+.whatsapp-float:hover {
+  transform: translateY(-3px) scale(1.05);
+  box-shadow: 0 14px 34px -8px rgba(37, 211, 102, 0.65);
+}
+@media screen and (max-width: 749px) {
+  .whatsapp-float {
+    right: 1.4rem;
+    bottom: 1.4rem;
+    width: 5.2rem;
+    height: 5.2rem;
+  }
+  /* En la ficha de producto sube para no tapar el botón de compra sticky */
+  .whatsapp-float--product {
+    bottom: 8.4rem;
+  }
+}
+@media print {
+  .whatsapp-float {
+    display: none;
+  }
+}
+
+/* ============================================================
+   ENVÍO GRATIS — barra de progreso del carrito
+   ============================================================ */
+.free-shipping-bar {
+  padding: 1.2rem 0 1.4rem;
+  border-bottom: 1px solid rgba(46, 42, 43, 0.08);
+}
+.free-shipping-bar__text {
+  margin: 0 0 0.8rem;
+  font-size: 1.3rem;
+  text-align: center;
+  color: rgba(46, 42, 43, 0.75);
+}
+.free-shipping-bar__text strong {
+  color: #2E2A2B;
+}
+.free-shipping-bar__check {
+  color: var(--rose-gold-deep);
+  font-weight: 600;
+}
+.free-shipping-bar__track {
+  height: 0.6rem;
+  border-radius: 999px;
+  background: rgba(46, 42, 43, 0.08);
+  overflow: hidden;
+}
+.free-shipping-bar__fill {
+  height: 100%;
+  border-radius: 999px;
+  background: linear-gradient(90deg, var(--rose-gold), var(--rose-gold-deep));
+  transition: width 0.5s cubic-bezier(0.16, 1, 0.3, 1);
+}
+.free-shipping-bar__fill--complete {
+  background: linear-gradient(90deg, #7C9A6E, #5F7D54);
+}
+
+/* ============================================================
    RESPONSIVE — móvil (donde compra la mayoría)
    ============================================================ */
 @media screen and (max-width: 749px) {
