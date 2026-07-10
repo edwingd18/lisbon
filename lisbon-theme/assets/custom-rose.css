@@ -1,95 +1,238 @@
 /* ============================================================
-   Tienda Lisbon — Sistema de diseño "Rosé / Crema suave"
-   Skincare coreano + artículos para el hogar
+   Tienda Lisbon — Sistema de diseño "Blanco galería"
+   Skincare coreano (Skin1004 · Celimax) · base casi blanca,
+   oro rosa como acento único, color de ingrediente por marca.
+   Inspirado en somiskincare / skin1004 / celimax:
+   mucho aire, tarjetas limpias, tipografía sans ligera.
    Cargado DESPUÉS de base.css para sobrescribir a Dawn.
    ============================================================ */
 
 /* ---- Tipografía de marca -----------------------------------
-   Titulares: Cormorant Garamond (serif elegante y fina)
-   Cuerpo:    Inter (sans-serif limpia y muy legible)
-   Sobrescribimos las variables que Dawn genera desde el
-   selector de fuentes de Shopify.                             */
+   Titulares: Jost (sans geométrico, ligero, elegante)
+   Cuerpo:    Inter (sans limpia y muy legible)              */
 :root {
-  --font-heading-family: "Cormorant Garamond", Georgia, "Times New Roman", serif;
+  --font-heading-family: "Jost", -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
   --font-heading-style: normal;
-  --font-heading-weight: 600;
+  --font-heading-weight: 400;
 
   --font-body-family: "Inter", -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
   --font-body-style: normal;
   --font-body-weight: 400;
   --font-body-weight-bold: 600;
+
+  /* Acentos oro rosa reutilizables (paleta "Blanco galería") */
+  --rose-gold: #C0876F;
+  --rose-gold-deep: #A86A54;
+
+  /* Color de ingrediente por marca */
+  --brand-skin1004: #7C9A6E; /* verde centella */
+  --brand-celimax: #C56B57;  /* rojo noni */
 }
 
-/* ---- Cuerpo: legibilidad -----------------------------------
-   Inter no necesita tanto tracking como la fuente por defecto. */
+/* ---- Cuerpo: legibilidad y respiro -------------------------- */
 body {
-  letter-spacing: 0.01rem;
+  letter-spacing: 0.005rem;
   line-height: calc(1 + 0.85 / var(--font-body-scale));
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
 }
 
-/* ---- Titulares: presencia editorial ------------------------
-   El serif luce mejor un poco más apretado y con line-height
-   ceñido. Aplica a las clases de heading de Dawn (.h0–.h6)
-   y a los tags nativos.                                        */
+/* ---- Titulares: sans ligero, con aire ----------------------
+   Jost pide un poco de tracking y pesos bajos para lucir
+   minimalista y premium, como las referencias K-beauty.     */
 h1, h2, h3, h4, h5,
 .h0, .h1, .h2, .h3, .h4, .h5 {
-  letter-spacing: -0.01em;
-  line-height: 1.15;
-  font-weight: var(--font-heading-weight);
+  font-family: var(--font-heading-family);
+  font-weight: 400;
+  letter-spacing: 0.01em;
+  line-height: 1.2;
 }
 
 .h0, h1, .h1 {
-  line-height: 1.08;
+  font-weight: 300;
+  letter-spacing: 0.005em;
+  line-height: 1.12;
 }
 
-/* ---- Botones: toque suave y cálido -------------------------- */
+/* Títulos de sección: centrados, ligeros y con aire ---------- */
+.title-wrapper-with-link .title,
+.collection__title .title,
+.multicolumn .title,
+.rich-text__heading {
+  font-weight: 400;
+}
+
+/* Descripción bajo el título de sección: sutil y espaciada --- */
+.title-wrapper .title + *,
+.collection__description {
+  color: rgba(46, 42, 43, 0.7);
+}
+
+/* ---- Botones: minimalistas y cálidos ----------------------- */
 .button,
 .shopify-payment-button__button--unbranded,
 .shopify-challenge__button,
 .customer button {
   font-family: var(--font-body-family);
   font-weight: 500;
-  letter-spacing: 0.02rem;
+  letter-spacing: 0.04rem;
+  text-transform: uppercase;
+  font-size: 1.3rem;
   transition: transform 0.15s ease, box-shadow 0.2s ease, background-color 0.2s ease;
 }
 
 .button:not([disabled]):hover {
   transform: translateY(-1px);
+  box-shadow: 0 8px 22px -8px rgba(46, 42, 43, 0.4);
 }
 
-/* ---- Tarjetas de producto: transición suave al hover -------- */
-.card-wrapper,
-.card {
-  transition: transform 0.25s ease, box-shadow 0.25s ease;
+.button:not([disabled]):active {
+  transform: translateY(0);
 }
 
-.card-wrapper:hover {
-  transform: translateY(-4px);
-}
-
-/* ---- Enlaces del cuerpo: subrayado delicado ----------------- */
+/* ---- Enlaces del cuerpo: subrayado delicado ---------------- */
 a:not(.button):not(.card__heading a) {
   text-underline-offset: 0.2em;
 }
 
-/* ---- Precios: que respiren con la fuente de cuerpo ---------- */
+/* ---- Precios: cuerpo, discretos ---------------------------- */
 .price {
   font-family: var(--font-body-family);
   letter-spacing: 0.01rem;
 }
 
-/* ============================================================
-   IMPACTO — transiciones y microinteracciones
-   ============================================================ */
-
-/* Scroll suave al navegar por anclas */
+/* Scroll suave al navegar por anclas ------------------------- */
 html {
   scroll-behavior: smooth;
 }
 
-/* --- Zoom lento de la imagen al pasar sobre la tarjeta ------- */
+/* ============================================================
+   BANNER CLARO — degradado crema/oro rosa, texto oscuro
+   scheme-3 lleva el degradado claro (settings_data.json), estilo
+   "blanco galería". Un barrido de luz muy tenue le da vida sin
+   ensuciar el texto oscuro que va encima.
+   ============================================================ */
+
+.banner .color-scheme-3,
+.color-scheme-3.banner__box {
+  position: relative;
+  overflow: hidden;
+}
+
+.banner .color-scheme-3::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(
+    115deg,
+    rgba(255, 255, 255, 0) 35%,
+    rgba(255, 255, 255, 0.28) 50%,
+    rgba(255, 255, 255, 0) 65%
+  );
+  background-size: 250% 250%;
+  animation: rose-gold-sheen 9s ease-in-out infinite;
+  pointer-events: none;
+  mix-blend-mode: screen;
+}
+
+@keyframes rose-gold-sheen {
+  0%   { background-position: 200% 0; }
+  100% { background-position: -80% 0; }
+}
+
+/* Caja de texto del hero: fina, nacarada, con aire ----------- */
+.banner__box {
+  border: 1px solid rgba(255, 255, 255, 0.35);
+  box-shadow: 0 24px 60px -30px rgba(46, 42, 43, 0.5);
+  padding: 3.6rem 3.2rem;
+}
+
+.banner__heading {
+  font-weight: 300;
+  letter-spacing: 0.01em;
+}
+
+/* Titular del hero: entrada elegante hacia arriba ------------ */
+.banner .banner__heading {
+  animation: hero-rise 1s cubic-bezier(0.16, 1, 0.3, 1) both;
+}
+.banner__box .banner__text {
+  animation: hero-rise 1s cubic-bezier(0.16, 1, 0.3, 1) 0.12s both;
+}
+.banner__box .banner__buttons {
+  animation: hero-rise 1s cubic-bezier(0.16, 1, 0.3, 1) 0.24s both;
+}
+
+@keyframes hero-rise {
+  from { opacity: 0; transform: translateY(18px); }
+  to   { opacity: 1; transform: translateY(0); }
+}
+
+/* ============================================================
+   PRODUCTOS — tarjetas minimalistas de boutique
+   Sin bordes ni sombras pesadas; imagen protagonista,
+   texto centrado y aireado, como las referencias K-beauty.
+   ============================================================ */
+
+/* Fuera bordes/marcos del estilo "card" de Dawn -------------- */
+.card--card,
+.card-wrapper .card--card {
+  border: none;
+  box-shadow: none;
+  background: transparent;
+}
+
+/* Imagen: esquinas suaves y limpias -------------------------- */
+.card--standard .card__media,
+.card--card .card__media,
+.card__inner {
+  border-radius: 14px;
+  overflow: hidden;
+}
+
+/* Info del producto: centrada y con aire --------------------- */
+.card__information,
+.card-information {
+  text-align: center;
+  padding-top: 1.6rem;
+  padding-bottom: 0.4rem;
+}
+
+/* Nombre del producto: Jost, presente pero ligero ------------ */
+.card__heading {
+  font-family: var(--font-heading-family);
+  font-weight: 400;
+  font-size: 1.7rem;
+  line-height: 1.25;
+  letter-spacing: 0.01em;
+}
+
+@media screen and (min-width: 990px) {
+  .card__heading {
+    font-size: 1.9rem;
+  }
+}
+
+/* Precio: legible y centrado, un punto más grande ------------ */
+.card__information .price,
+.card-information .price {
+  font-size: 1.6rem;
+  letter-spacing: 0.01rem;
+}
+
+/* Valoración (estrellas) en oro rosa, centrada --------------- */
+.card__information .rating,
+.card-information .rating {
+  justify-content: center;
+}
+.rating-star {
+  --color-rating-star: var(--rose-gold);
+}
+.rating-count {
+  color: rgba(46, 42, 43, 0.6);
+}
+
+/* Zoom lento y elegante de la imagen al hover ---------------- */
 .card__media .media img,
 .card .media img,
 .collection-list .media img,
@@ -97,36 +240,65 @@ html {
   transition: transform 0.7s cubic-bezier(0.16, 1, 0.3, 1);
   will-change: transform;
 }
-
 .card-wrapper:hover .card__media .media img,
 .card:hover .media img,
 .collection-list__item:hover .media img {
-  transform: scale(1.06);
+  transform: scale(1.05);
 }
 
-/* --- Botones: profundidad cálida al hover -------------------- */
-.button::after {
-  transition: box-shadow 0.25s ease, opacity 0.25s ease;
+/* Elevación muy sutil de la tarjeta -------------------------- */
+.card-wrapper {
+  transition: transform 0.3s cubic-bezier(0.16, 1, 0.3, 1);
+}
+.card-wrapper:hover {
+  transform: translateY(-4px);
 }
 
-.button:not([disabled]):hover {
-  box-shadow: 0 8px 22px -8px rgba(70, 56, 58, 0.45);
+/* Botón "añadir" de la tarjeta: redondeado ------------------- */
+.card__information .quick-add__submit,
+.quick-add__submit {
+  border-radius: 10px;
 }
 
-.button:not([disabled]):active {
-  transform: translateY(0);
+/* ============================================================
+   CATEGORÍAS — tiles limpios con etiqueta elegante
+   ============================================================ */
+.collection-list__item .card__heading {
+  font-size: 2.2rem;
+  font-weight: 300;
 }
 
-/* --- Tarjetas: sombra que crece con suavidad ----------------- */
-.card-wrapper:hover .card {
-  box-shadow: 0 18px 40px -18px rgba(70, 56, 58, 0.28);
+/* ============================================================
+   PROMESA / VALORES — sección trust aireada
+   ============================================================ */
+.multicolumn .multicolumn-card__info .title {
+  font-weight: 400;
+  letter-spacing: 0.02em;
+}
+.multicolumn-card {
+  background: transparent;
 }
 
-/* --- Enlaces de navegación: subrayado que se despliega ------- */
+/* ============================================================
+   ANIMACIONES ACORDE — entrada escalonada al hacer scroll
+   ============================================================ */
+.scroll-trigger.animate--slide-in {
+  --slide-distance: 2.6rem;
+  animation: rose-slide-in 0.9s cubic-bezier(0.16, 1, 0.3, 1) both;
+  animation-delay: calc(var(--animation-order, 0) * 0.09s);
+}
+
+@keyframes rose-slide-in {
+  from { opacity: 0; transform: translateY(var(--slide-distance, 2.6rem)); }
+  to   { opacity: 1; transform: translateY(0); }
+}
+
+/* Menú: subrayado oro rosa que se despliega ------------------ */
 .header__menu-item {
   position: relative;
+  font-weight: 500;
+  letter-spacing: 0.02em;
 }
-
 .header__menu-item::after {
   content: "";
   position: absolute;
@@ -134,66 +306,174 @@ html {
   bottom: 0.2rem;
   width: 100%;
   height: 1px;
-  background: currentColor;
+  background: var(--rose-gold);
   transform: scaleX(0);
   transform-origin: left;
   transition: transform 0.3s cubic-bezier(0.16, 1, 0.3, 1);
-  opacity: 0.6;
+  opacity: 0.8;
 }
-
 .header__menu-item:hover::after {
   transform: scaleX(1);
 }
 
-/* --- Badges (ofertas/agotado): entrada suave ----------------- */
+/* ============================================================
+   PULIDO PROFESIONAL — detalles que elevan la marca
+   ============================================================ */
+
+/* Barra de anuncios: fina, en versalitas, tipo boutique ------ */
+.announcement-bar__message,
+.announcement-bar p {
+  text-transform: uppercase;
+  letter-spacing: 0.12em;
+  font-size: 1.15rem;
+  font-weight: 500;
+}
+
+/* Navegación: versalitas discretas, muy premium -------------- */
+.header__menu-item span,
+.header__active-menu-item {
+  text-transform: uppercase;
+  letter-spacing: 0.08em;
+  font-size: 1.3rem;
+  font-weight: 500;
+}
+
+/* Header: sin sombra dura, línea finísima al hacer sticky ---- */
+.header-wrapper {
+  border-bottom: 1px solid rgba(46, 42, 43, 0.08);
+}
+.shopify-section-header-sticky {
+  box-shadow: 0 6px 24px -18px rgba(46, 42, 43, 0.35);
+}
+
+/* Selección de texto con acento de marca -------------------- */
+::selection {
+  background: rgba(192, 135, 111, 0.22);
+  color: #2E2A2B;
+}
+
+/* Foco accesible y elegante en oro rosa --------------------- */
+a:focus-visible,
+button:focus-visible,
+.button:focus-visible,
+summary:focus-visible,
+input:focus-visible,
+select:focus-visible,
+textarea:focus-visible {
+  outline: 2px solid var(--rose-gold);
+  outline-offset: 2px;
+  border-radius: 4px;
+}
+
+/* Badges (oferta / agotado): píldora oro rosa --------------- */
 .badge {
-  transition: transform 0.2s ease;
+  border-radius: 999px;
+  text-transform: uppercase;
+  letter-spacing: 0.06em;
+  font-size: 1.05rem;
+  font-weight: 600;
+  padding: 0.5rem 1.1rem;
+}
+.badge.price__badge-sale {
+  background: var(--rose-gold-deep);
+  color: #fff;
+  border-color: var(--rose-gold-deep);
 }
 
-.card-wrapper:hover .badge {
-  transform: translateY(-2px);
+/* Precio de oferta en oro rosa, "antes" tachado sutil ------- */
+.price--on-sale .price-item--sale,
+.price__sale .price-item--sale {
+  color: var(--rose-gold-deep);
+  font-weight: 600;
+}
+.price__sale .price-item--regular,
+s.price-item {
+  opacity: 0.55;
 }
 
-/* --- Reveal on scroll: un pelín más notorio ------------------
-   Dawn ya anima al hacer scroll; solo suavizamos la curva.     */
-.scroll-trigger.animate--slide-in {
-  transition-timing-function: cubic-bezier(0.16, 1, 0.3, 1);
+/* Título de sección + descripción: eyebrow refinado --------- */
+.title-wrapper-with-link,
+.collection .title-wrapper {
+  margin-bottom: 3.2rem;
+}
+.featured-collection .title,
+.collection-list-title .title {
+  margin-bottom: 0.6rem;
+}
+
+/* Enlace "Ver todo": subrayado que respira ------------------ */
+.collection__view-all .link,
+a.link.underlined-link {
+  text-transform: uppercase;
+  letter-spacing: 0.08em;
+  font-size: 1.2rem;
+  font-weight: 500;
+}
+
+/* Ficha de producto: precio con más presencia -------------- */
+.product__info-wrapper .price {
+  font-size: 2rem;
+}
+.product__title h1,
+.product__title .h1 {
+  font-weight: 300;
+  letter-spacing: 0.005em;
+}
+
+/* Iconos de confianza de la ficha: alineados y con aire ----- */
+.product .icon-with-text {
+  gap: 2rem;
+  margin-top: 1rem;
+}
+
+/* Pestañas plegables: tipografía y línea limpia ------------- */
+.product .accordion summary,
+.product .accordion .summary__title {
+  font-family: var(--font-heading-family);
+  font-weight: 500;
+  letter-spacing: 0.02em;
+}
+
+/* Footer: tipografía coherente y aire ----------------------- */
+.footer__content-top {
+  padding-bottom: 4rem;
+}
+.footer-block__heading {
+  font-family: var(--font-heading-family);
+  font-weight: 500;
+  letter-spacing: 0.04em;
+  text-transform: uppercase;
+  font-size: 1.4rem;
+}
+
+/* Carrito: botón principal con presencia -------------------- */
+.cart__dynamic-checkout-buttons,
+.cart__checkout-button {
+  font-weight: 600;
 }
 
 /* ============================================================
-   RESPONSIVE — ajustes para móvil (donde compra la mayoría)
+   RESPONSIVE — móvil (donde compra la mayoría)
    ============================================================ */
 @media screen and (max-width: 749px) {
-  /* Titulares serif: evitar que se vean demasiado grandes/apretados */
   h1, .h1, .h0 {
-    line-height: 1.12;
-    letter-spacing: -0.005em;
+    line-height: 1.15;
   }
-
-  /* Hero: un poco más de aire alrededor del texto */
   .banner__box {
-    padding: 2.4rem 2rem;
+    padding: 2.6rem 2rem;
   }
-
-  /* Botones a lo ancho para tap cómodo en móvil */
   .banner__buttons .button {
     width: 100%;
   }
-
-  /* Iconos de confianza en la ficha: que respiren */
-  .icon-with-text {
-    gap: 1.2rem;
+  .card__heading {
+    font-size: 1.6rem;
   }
 }
 
-/* --- Accesibilidad: respetar "reducir movimiento" ------------ */
+/* --- Accesibilidad: respetar "reducir movimiento" ----------- */
 @media (prefers-reduced-motion: reduce) {
-  html {
-    scroll-behavior: auto;
-  }
-  *,
-  *::before,
-  *::after {
+  html { scroll-behavior: auto; }
+  *, *::before, *::after {
     animation-duration: 0.001ms !important;
     animation-iteration-count: 1 !important;
     transition-duration: 0.001ms !important;

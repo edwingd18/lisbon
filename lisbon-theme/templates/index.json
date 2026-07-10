@@ -1,7 +1,7 @@
 {
   "sections": {
     "hero_banner": {
-      "type": "image-banner",
+      "type": "video-banner",
       "blocks": {
         "heading": {
           "type": "heading",
@@ -13,7 +13,7 @@
         "text": {
           "type": "text",
           "settings": {
-            "text": "Skincare coreano auténtico y esenciales para el hogar, elegidos con cariño.",
+            "text": "Centella, noni y barrera de piel. Skin1004 y Celimax, elegidos con cariño para nutrir tu piel capa a capa.",
             "text_style": "body"
           }
         },
@@ -23,143 +23,149 @@
             "button_label_1": "Descubrir skincare",
             "button_link_1": "shopify://collections/skincare",
             "button_style_secondary_1": false,
-            "button_label_2": "Para el hogar",
-            "button_link_2": "shopify://collections/hogar",
+            "button_label_2": "Best sellers",
+            "button_link_2": "shopify://collections/best-sellers",
             "button_style_secondary_2": true
           }
         }
       },
       "block_order": ["heading", "text", "buttons"],
       "settings": {
-        "image_overlay_opacity": 20,
+        "image_overlay_opacity": 10,
         "image_height": "large",
         "desktop_content_position": "middle-center",
-        "show_text_box": true,
-        "image_behavior": "none",
+        "show_text_box": false,
+        "enable_video_looping": true,
         "desktop_content_alignment": "center",
         "color_scheme": "scheme-3",
         "mobile_content_alignment": "center",
-        "stack_images_on_mobile": true,
         "show_text_below": false
       }
     },
-    "intro": {
-      "type": "rich-text",
-      "blocks": {
-        "heading": {
-          "type": "heading",
-          "settings": {
-            "heading": "Belleza que nace del cuidado",
-            "heading_size": "h1"
-          }
-        },
-        "text": {
-          "type": "text",
-          "settings": {
-            "text": "<p>En Lisbon creemos en los rituales lentos: pieles sanas y hogares que se sienten bien. Seleccionamos skincare coreano de fórmulas suaves y objetos útiles y bonitos para tu día a día.</p>"
-          }
-        }
-      },
-      "block_order": ["heading", "text"],
-      "settings": {
-        "desktop_content_position": "center",
-        "content_alignment": "center",
-        "color_scheme": "scheme-1",
-        "full_width": true
-      }
-    },
-    "featured_skincare": {
-      "type": "featured-collection",
-      "settings": {
-        "title": "Favoritos de skincare",
-        "heading_size": "h1",
-        "description": "",
-        "show_description": false,
-        "collection": "skincare",
-        "products_to_show": 4,
-        "columns_desktop": 4,
-        "color_scheme": "scheme-1",
-        "full_width": false,
-        "show_view_all": true,
-        "view_all_style": "solid",
-        "image_ratio": "portrait",
-        "image_shape": "default",
-        "show_secondary_image": true,
-        "show_vendor": false,
-        "show_rating": false,
-        "quick_add": "standard",
-        "columns_mobile": "2"
-      }
-    },
-    "categorias": {
+    "compra_marca": {
       "type": "collection-list",
       "blocks": {
-        "cat_skincare": {
+        "cat_skin1004": {
           "type": "featured_collection",
           "settings": {
-            "collection": "skincare"
+            "collection": "skin1004"
           }
         },
-        "cat_hogar": {
+        "cat_celimax": {
           "type": "featured_collection",
           "settings": {
-            "collection": "hogar"
+            "collection": "celimax"
           }
         }
       },
-      "block_order": ["cat_skincare", "cat_hogar"],
+      "block_order": ["cat_skin1004", "cat_celimax"],
       "settings": {
-        "title": "Explora por categoría",
-        "heading_size": "h1",
-        "image_ratio": "square",
+        "title": "Compra por marca",
+        "heading_size": "h2",
+        "image_ratio": "portrait",
         "columns_desktop": 2,
-        "color_scheme": "scheme-5",
+        "color_scheme": "scheme-1",
         "show_view_all": false,
         "columns_mobile": "2"
       }
     },
-    "beneficios": {
-      "type": "multicolumn",
+    "compra_tipo": {
+      "type": "collection-list",
       "blocks": {
-        "col_1": {
-          "type": "column",
+        "tipo_limpieza": {
+          "type": "featured_collection",
           "settings": {
-            "title": "100% auténtico",
-            "text": "<p>Productos coreanos originales, directo de marca. Sin falsificaciones.</p>",
-            "link_label": "",
-            "link": ""
+            "collection": "limpieza"
           }
         },
-        "col_2": {
-          "type": "column",
+        "tipo_tonicos": {
+          "type": "featured_collection",
           "settings": {
-            "title": "Envío con cariño",
-            "text": "<p>Empaque cuidado y seguro para que tu ritual llegue impecable.</p>",
-            "link_label": "",
-            "link": ""
+            "collection": "tonicos-esencias"
           }
         },
-        "col_3": {
-          "type": "column",
+        "tipo_serums": {
+          "type": "featured_collection",
           "settings": {
-            "title": "Rituales que funcionan",
-            "text": "<p>Selección curada: fórmulas suaves y objetos útiles y bonitos.</p>",
-            "link_label": "",
-            "link": ""
+            "collection": "serums-ampollas"
+          }
+        },
+        "tipo_hidratacion": {
+          "type": "featured_collection",
+          "settings": {
+            "collection": "hidratacion"
+          }
+        },
+        "tipo_spf": {
+          "type": "featured_collection",
+          "settings": {
+            "collection": "proteccion-solar"
           }
         }
       },
-      "block_order": ["col_1", "col_2", "col_3"],
+      "block_order": [
+        "tipo_limpieza",
+        "tipo_tonicos",
+        "tipo_serums",
+        "tipo_hidratacion",
+        "tipo_spf"
+      ],
       "settings": {
-        "title": "Por qué Lisbon",
-        "heading_size": "h1",
-        "image_width": "half",
-        "image_ratio": "adapt",
-        "columns_desktop": 3,
-        "column_alignment": "center",
-        "background_style": "none",
-        "color_scheme": "scheme-2",
-        "columns_mobile": "1"
+        "title": "Compra por tipo",
+        "heading_size": "h2",
+        "image_ratio": "square",
+        "columns_desktop": 5,
+        "color_scheme": "scheme-1",
+        "show_view_all": false,
+        "columns_mobile": "2"
+      }
+    },
+    "featured_bestsellers": {
+      "type": "featured-collection",
+      "settings": {
+        "title": "Best sellers",
+        "heading_size": "h2",
+        "description": "<p>Los favoritos de nuestra comunidad, una y otra vez.</p>",
+        "show_description": true,
+        "collection": "best-sellers",
+        "products_to_show": 8,
+        "columns_desktop": 4,
+        "color_scheme": "scheme-5",
+        "full_width": false,
+        "show_view_all": true,
+        "view_all_style": "link",
+        "enable_desktop_slider": true,
+        "image_ratio": "portrait",
+        "image_shape": "default",
+        "show_secondary_image": true,
+        "show_vendor": true,
+        "show_rating": true,
+        "quick_add": "standard",
+        "columns_mobile": "2"
+      }
+    },
+    "featured_novedades": {
+      "type": "featured-collection",
+      "settings": {
+        "title": "Recién llegados",
+        "heading_size": "h2",
+        "description": "<p>Lo último en llegar a Lisbon para tu ritual de skincare.</p>",
+        "show_description": true,
+        "collection": "novedades",
+        "products_to_show": 8,
+        "columns_desktop": 4,
+        "color_scheme": "scheme-1",
+        "full_width": false,
+        "show_view_all": true,
+        "view_all_style": "link",
+        "enable_desktop_slider": true,
+        "image_ratio": "portrait",
+        "image_shape": "default",
+        "show_secondary_image": true,
+        "show_vendor": true,
+        "show_rating": true,
+        "quick_add": "standard",
+        "columns_mobile": "2"
       }
     },
     "ritual": {
@@ -175,7 +181,7 @@
         "text": {
           "type": "text",
           "settings": {
-            "text": "<p>Limpieza, tónico, esencia, sérum e hidratación. Te ayudamos a construir la rutina ideal para tu piel, sin complicarte.</p>"
+            "text": "<p>Limpieza, tónico, esencia, sérum e hidratación. Te ayudamos a construir la rutina ideal para tu piel, sin complicarte. Fórmulas coreanas pensadas para nutrir capa a capa.</p>"
           }
         },
         "button": {
@@ -195,30 +201,51 @@
         "desktop_content_position": "middle",
         "desktop_content_alignment": "left",
         "section_color_scheme": "scheme-1",
-        "color_scheme": "scheme-5"
+        "color_scheme": "scheme-1"
       }
     },
-    "featured_hogar": {
-      "type": "featured-collection",
+    "promesa": {
+      "type": "multicolumn",
+      "blocks": {
+        "col_1": {
+          "type": "column",
+          "settings": {
+            "title": "100% auténtico",
+            "text": "<p>Producto coreano original, directo de marca. Sin falsificaciones.</p>",
+            "link_label": "",
+            "link": ""
+          }
+        },
+        "col_2": {
+          "type": "column",
+          "settings": {
+            "title": "Fórmulas suaves",
+            "text": "<p>Ingredientes cuidados, aptos para piel sensible. Belleza sin agresiones.</p>",
+            "link_label": "",
+            "link": ""
+          }
+        },
+        "col_3": {
+          "type": "column",
+          "settings": {
+            "title": "Envío con cariño",
+            "text": "<p>Empaque cuidado y seguro para que tu ritual llegue impecable.</p>",
+            "link_label": "",
+            "link": ""
+          }
+        }
+      },
+      "block_order": ["col_1", "col_2", "col_3"],
       "settings": {
-        "title": "Esenciales para tu hogar",
-        "heading_size": "h1",
-        "description": "",
-        "show_description": false,
-        "collection": "hogar",
-        "products_to_show": 4,
-        "columns_desktop": 4,
-        "color_scheme": "scheme-1",
-        "full_width": false,
-        "show_view_all": true,
-        "view_all_style": "solid",
-        "image_ratio": "portrait",
-        "image_shape": "default",
-        "show_secondary_image": true,
-        "show_vendor": false,
-        "show_rating": false,
-        "quick_add": "standard",
-        "columns_mobile": "2"
+        "title": "La promesa Lisbon",
+        "heading_size": "h2",
+        "image_width": "third",
+        "image_ratio": "adapt",
+        "columns_desktop": 3,
+        "column_alignment": "center",
+        "background_style": "none",
+        "color_scheme": "scheme-5",
+        "columns_mobile": "1"
       }
     },
     "newsletter": {
@@ -227,7 +254,7 @@
         "heading": {
           "type": "heading",
           "settings": {
-            "heading": "Únete al club Lisbon",
+            "heading": "Únete al Club Lisbon",
             "heading_size": "h1"
           }
         },
@@ -251,12 +278,12 @@
   },
   "order": [
     "hero_banner",
-    "intro",
-    "featured_skincare",
-    "categorias",
-    "beneficios",
+    "compra_marca",
+    "compra_tipo",
+    "featured_bestsellers",
+    "featured_novedades",
     "ritual",
-    "featured_hogar",
+    "promesa",
     "newsletter"
   ]
 }
