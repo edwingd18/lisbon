@@ -279,6 +279,109 @@ html {
   background: transparent;
 }
 
+/* Icono de columna: círculo suave con trazo oro rosa ---------- */
+.multicolumn-card__icon {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 6.4rem;
+  height: 6.4rem;
+  border-radius: 50%;
+  background: rgba(192, 135, 111, 0.1);
+  margin-bottom: 1.8rem;
+}
+.multicolumn-card__icon .icon {
+  width: 2.6rem;
+  height: 2.6rem;
+  fill: currentColor;
+  color: var(--rose-gold-deep);
+}
+.multicolumn-card__info .multicolumn-card__icon + h3 {
+  margin-top: 0;
+}
+
+/* ============================================================
+   EDITORIAL DE INGREDIENTES — color de marca por sección
+   Las claves de index.json terminan en el id del section wrapper,
+   así que [id$="__clave"] apunta a cada instancia sin tocar Liquid.
+   ============================================================ */
+[id$="__ingrediente_skin1004"] {
+  --ingredient: var(--brand-skin1004);
+  --ingredient-rgb: 124, 154, 110;
+}
+[id$="__ingrediente_celimax"] {
+  --ingredient: var(--brand-celimax);
+  --ingredient-rgb: 197, 107, 87;
+}
+
+[id$="__ingrediente_skin1004"] .image-with-text__content,
+[id$="__ingrediente_celimax"] .image-with-text__content {
+  background: rgba(var(--ingredient-rgb), 0.06);
+  background: color-mix(in srgb, var(--ingredient) 7%, #FCFBFA);
+  border-inline-start: 2px solid var(--ingredient);
+  border-radius: 0 14px 14px 0;
+  padding: 4rem 3.6rem;
+}
+
+/* Eyebrow del ingrediente en su color de marca ---------------- */
+[id$="__ingrediente_skin1004"] .image-with-text__text--caption,
+[id$="__ingrediente_celimax"] .image-with-text__text--caption {
+  color: var(--ingredient);
+  font-weight: 600;
+  letter-spacing: 0.14em;
+}
+
+/* Botón: lavado sutil del color de ingrediente ---------------- */
+[id$="__ingrediente_skin1004"] .button,
+[id$="__ingrediente_celimax"] .button {
+  --color-button: var(--ingredient-rgb);
+  --color-button-text: 46, 42, 43;
+  --alpha-button-background: 0.14;
+  --alpha-button-border: 0.5;
+}
+
+/* ============================================================
+   UGC / INSTAGRAM — tiles cuadrados con overlay al hover
+   El enlace del bloque se estira sobre toda la tarjeta.
+   ============================================================ */
+[id$="__ugc_instagram"] .multicolumn-card {
+  position: relative;
+  border-radius: 14px;
+  overflow: hidden;
+}
+[id$="__ugc_instagram"] .multicolumn-card__info {
+  position: unset;
+  padding: 0;
+}
+[id$="__ugc_instagram"] .multicolumn-card__info .link {
+  position: absolute;
+  inset: 0;
+  z-index: 2;
+  font-size: 0;
+  color: transparent;
+}
+[id$="__ugc_instagram"] .multicolumn-card::after {
+  content: "Ver en Instagram";
+  position: absolute;
+  inset: 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: rgba(46, 42, 43, 0.35);
+  color: #fff;
+  text-transform: uppercase;
+  letter-spacing: 0.12em;
+  font-size: 1.2rem;
+  font-weight: 500;
+  opacity: 0;
+  transition: opacity 0.3s ease;
+  pointer-events: none;
+}
+[id$="__ugc_instagram"] .multicolumn-card:hover::after,
+[id$="__ugc_instagram"] .multicolumn-list__item:focus-within .multicolumn-card::after {
+  opacity: 1;
+}
+
 /* ============================================================
    ANIMACIONES ACORDE — entrada escalonada al hacer scroll
    ============================================================ */
@@ -426,9 +529,9 @@ a.link.underlined-link {
   margin-top: 1rem;
 }
 
-/* Pestañas plegables: tipografía y línea limpia ------------- */
-.product .accordion summary,
-.product .accordion .summary__title {
+/* Pestañas plegables (producto y FAQ): tipografía limpia ----- */
+.accordion summary,
+.accordion .summary__title {
   font-family: var(--font-heading-family);
   font-weight: 500;
   letter-spacing: 0.02em;

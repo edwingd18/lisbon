@@ -42,6 +42,43 @@
         "show_text_below": false
       }
     },
+    "marquee_beneficios": {
+      "type": "marquee-beneficios",
+      "blocks": {
+        "msg_envio": {
+          "type": "mensaje",
+          "settings": {
+            "texto": "Envío en 24-72h a toda España"
+          }
+        },
+        "msg_original": {
+          "type": "mensaje",
+          "settings": {
+            "texto": "100% original de Corea"
+          }
+        },
+        "msg_ingredientes": {
+          "type": "mensaje",
+          "settings": {
+            "texto": "Centella y noni para tu piel"
+          }
+        },
+        "msg_club": {
+          "type": "mensaje",
+          "settings": {
+            "texto": "-10% al unirte al Club Lisbon"
+          }
+        }
+      },
+      "block_order": ["msg_envio", "msg_original", "msg_ingredientes", "msg_club"],
+      "settings": {
+        "velocidad": 28,
+        "separador": "✦",
+        "pausar_hover": true,
+        "color_scheme": "scheme-4",
+        "padding_vertical": 14
+      }
+    },
     "compra_marca": {
       "type": "collection-list",
       "blocks": {
@@ -64,7 +101,7 @@
         "heading_size": "h2",
         "image_ratio": "portrait",
         "columns_desktop": 2,
-        "color_scheme": "scheme-1",
+        "color_scheme": "scheme-5",
         "show_view_all": false,
         "columns_mobile": "2"
       }
@@ -130,7 +167,7 @@
         "collection": "best-sellers",
         "products_to_show": 8,
         "columns_desktop": 4,
-        "color_scheme": "scheme-5",
+        "color_scheme": "scheme-1",
         "full_width": false,
         "show_view_all": true,
         "view_all_style": "link",
@@ -154,7 +191,7 @@
         "collection": "novedades",
         "products_to_show": 8,
         "columns_desktop": 4,
-        "color_scheme": "scheme-1",
+        "color_scheme": "scheme-5",
         "full_width": false,
         "show_view_all": true,
         "view_all_style": "link",
@@ -166,6 +203,94 @@
         "show_rating": true,
         "quick_add": "standard",
         "columns_mobile": "2"
+      }
+    },
+    "ingrediente_skin1004": {
+      "type": "image-with-text",
+      "blocks": {
+        "caption": {
+          "type": "caption",
+          "settings": {
+            "caption": "El ingrediente · Centella Asiática",
+            "text_style": "caption-with-letter-spacing",
+            "text_size": "medium"
+          }
+        },
+        "heading": {
+          "type": "heading",
+          "settings": {
+            "heading": "Centella de Madagascar: calma pura para tu piel",
+            "heading_size": "h1"
+          }
+        },
+        "text": {
+          "type": "text",
+          "settings": {
+            "text": "<p>SKIN1004 cultiva su centella en Madagascar, lejos de la contaminación, y la trabaja sin agua añadida. El resultado: fórmulas que calman rojeces, reparan la barrera y devuelven la serenidad a la piel más sensible.</p>"
+          }
+        },
+        "button": {
+          "type": "button",
+          "settings": {
+            "button_label": "Ver SKIN1004",
+            "button_link": "shopify://collections/skin1004"
+          }
+        }
+      },
+      "block_order": ["caption", "heading", "text", "button"],
+      "settings": {
+        "height": "medium",
+        "desktop_image_width": "medium",
+        "layout": "image_first",
+        "content_layout": "no-overlap",
+        "desktop_content_position": "middle",
+        "desktop_content_alignment": "left",
+        "section_color_scheme": "scheme-1",
+        "color_scheme": "scheme-1"
+      }
+    },
+    "ingrediente_celimax": {
+      "type": "image-with-text",
+      "blocks": {
+        "caption": {
+          "type": "caption",
+          "settings": {
+            "caption": "El ingrediente · Noni",
+            "text_style": "caption-with-letter-spacing",
+            "text_size": "medium"
+          }
+        },
+        "heading": {
+          "type": "heading",
+          "settings": {
+            "heading": "Noni: energía y elasticidad para una piel viva",
+            "heading_size": "h1"
+          }
+        },
+        "text": {
+          "type": "text",
+          "settings": {
+            "text": "<p>El extracto de noni de celimax, rico en vitaminas y antioxidantes, revitaliza la piel apagada, refuerza su elasticidad y le devuelve el brillo sano de una rutina bien cuidada.</p>"
+          }
+        },
+        "button": {
+          "type": "button",
+          "settings": {
+            "button_label": "Ver celimax",
+            "button_link": "shopify://collections/celimax"
+          }
+        }
+      },
+      "block_order": ["caption", "heading", "text", "button"],
+      "settings": {
+        "height": "medium",
+        "desktop_image_width": "medium",
+        "layout": "text_first",
+        "content_layout": "no-overlap",
+        "desktop_content_position": "middle",
+        "desktop_content_alignment": "left",
+        "section_color_scheme": "scheme-1",
+        "color_scheme": "scheme-1"
       }
     },
     "ritual": {
@@ -210,6 +335,7 @@
         "col_1": {
           "type": "column",
           "settings": {
+            "icon": "check-mark",
             "title": "100% auténtico",
             "text": "<p>Producto coreano original, directo de marca. Sin falsificaciones.</p>",
             "link_label": "",
@@ -219,6 +345,7 @@
         "col_2": {
           "type": "column",
           "settings": {
+            "icon": "leaf",
             "title": "Fórmulas suaves",
             "text": "<p>Ingredientes cuidados, aptos para piel sensible. Belleza sin agresiones.</p>",
             "link_label": "",
@@ -228,24 +355,154 @@
         "col_3": {
           "type": "column",
           "settings": {
+            "icon": "truck",
             "title": "Envío con cariño",
             "text": "<p>Empaque cuidado y seguro para que tu ritual llegue impecable.</p>",
             "link_label": "",
             "link": ""
           }
+        },
+        "col_4": {
+          "type": "column",
+          "settings": {
+            "icon": "padlock",
+            "title": "Pago seguro",
+            "text": "<p>Compra protegida con pasarelas de pago verificadas y cifradas.</p>",
+            "link_label": "",
+            "link": ""
+          }
         }
       },
-      "block_order": ["col_1", "col_2", "col_3"],
+      "block_order": ["col_1", "col_2", "col_3", "col_4"],
       "settings": {
         "title": "La promesa Lisbon",
         "heading_size": "h2",
         "image_width": "third",
         "image_ratio": "adapt",
-        "columns_desktop": 3,
+        "columns_desktop": 4,
         "column_alignment": "center",
         "background_style": "none",
         "color_scheme": "scheme-5",
         "columns_mobile": "1"
+      }
+    },
+    "faq_home": {
+      "type": "collapsible-content",
+      "blocks": {
+        "faq_autenticidad": {
+          "type": "collapsible_row",
+          "settings": {
+            "heading": "¿Los productos son originales?",
+            "icon": "none",
+            "row_content": "<p>Sí, siempre. Trabajamos directamente con SKIN1004 y celimax: todo lo que ves en Lisbon es 100% auténtico, traído de Corea con su cadena de distribución oficial.</p>"
+          }
+        },
+        "faq_envios": {
+          "type": "collapsible_row",
+          "settings": {
+            "heading": "¿Cuánto tarda el envío?",
+            "icon": "none",
+            "row_content": "<p>Entre 24 y 72 horas a toda España. Preparamos cada pedido con mimo para que tu ritual llegue impecable.</p>"
+          }
+        },
+        "faq_devoluciones": {
+          "type": "collapsible_row",
+          "settings": {
+            "heading": "¿Puedo devolver un producto?",
+            "icon": "none",
+            "row_content": "<p>Claro. Tienes 14 días desde la entrega para cambios y devoluciones sin complicaciones. Escríbenos y lo gestionamos juntos.</p>"
+          }
+        },
+        "faq_rutina": {
+          "type": "collapsible_row",
+          "settings": {
+            "heading": "No sé por dónde empezar, ¿me ayudáis con mi rutina?",
+            "icon": "none",
+            "row_content": "<p>Para eso estamos. La base coreana es sencilla: limpieza, tónico, sérum e hidratación. Si nos cuentas tu tipo de piel, te recomendamos el ritual perfecto para ti.</p>"
+          }
+        },
+        "faq_caducidad": {
+          "type": "collapsible_row",
+          "settings": {
+            "heading": "¿Cuánto duran los productos una vez abiertos?",
+            "icon": "none",
+            "row_content": "<p>Cada envase indica su PAO (el símbolo del tarrito abierto): normalmente 6-12 meses. Guárdalos lejos del sol y del calor para que sus activos se conserven al máximo.</p>"
+          }
+        }
+      },
+      "block_order": [
+        "faq_autenticidad",
+        "faq_envios",
+        "faq_devoluciones",
+        "faq_rutina",
+        "faq_caducidad"
+      ],
+      "settings": {
+        "caption": "",
+        "heading": "Preguntas frecuentes",
+        "heading_size": "h2",
+        "heading_alignment": "center",
+        "layout": "none",
+        "container_color_scheme": "scheme-1",
+        "color_scheme": "scheme-1",
+        "open_first_collapsible_row": true,
+        "image_ratio": "adapt",
+        "desktop_layout": "image_second"
+      }
+    },
+    "ugc_instagram": {
+      "type": "multicolumn",
+      "disabled": true,
+      "blocks": {
+        "ugc_1": {
+          "type": "column",
+          "settings": {
+            "title": "",
+            "text": "",
+            "link_label": "Instagram",
+            "link": "https://www.instagram.com/"
+          }
+        },
+        "ugc_2": {
+          "type": "column",
+          "settings": {
+            "title": "",
+            "text": "",
+            "link_label": "Instagram",
+            "link": "https://www.instagram.com/"
+          }
+        },
+        "ugc_3": {
+          "type": "column",
+          "settings": {
+            "title": "",
+            "text": "",
+            "link_label": "Instagram",
+            "link": "https://www.instagram.com/"
+          }
+        },
+        "ugc_4": {
+          "type": "column",
+          "settings": {
+            "title": "",
+            "text": "",
+            "link_label": "Instagram",
+            "link": "https://www.instagram.com/"
+          }
+        }
+      },
+      "block_order": ["ugc_1", "ugc_2", "ugc_3", "ugc_4"],
+      "settings": {
+        "title": "Comparte tu ritual · @lisbon",
+        "heading_size": "h2",
+        "image_width": "full",
+        "image_ratio": "square",
+        "columns_desktop": 4,
+        "column_alignment": "center",
+        "background_style": "none",
+        "color_scheme": "scheme-1",
+        "columns_mobile": "2",
+        "swipe_on_mobile": true
       }
     },
     "newsletter": {
@@ -278,12 +535,17 @@
   },
   "order": [
     "hero_banner",
-    "compra_marca",
-    "compra_tipo",
+    "marquee_beneficios",
     "featured_bestsellers",
+    "compra_marca",
+    "ingrediente_skin1004",
+    "ingrediente_celimax",
+    "compra_tipo",
     "featured_novedades",
     "ritual",
     "promesa",
+    "faq_home",
+    "ugc_instagram",
     "newsletter"
   ]
 }

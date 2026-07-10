@@ -119,6 +119,12 @@
                 </div>
               {%- endif -%}
               <div class="multicolumn-card__info">
+                {%- if block.settings.icon != blank and block.settings.icon != 'none' -%}
+                  {%- assign icon_file = block.settings.icon | prepend: 'icon-' | append: '.svg' -%}
+                  <span class="multicolumn-card__icon" aria-hidden="true">
+                    {{- icon_file | inline_asset_content -}}
+                  </span>
+                {%- endif -%}
                 {%- if block.settings.title != blank -%}
                   <h3 class="inline-richtext">{{ block.settings.title }}</h3>
                 {%- endif -%}
@@ -408,6 +414,27 @@
           "type": "image_picker",
           "id": "image",
           "label": "t:sections.multicolumn.blocks.column.settings.image.label"
+        },
+        {
+          "type": "select",
+          "id": "icon",
+          "label": "Icono",
+          "info": "Se muestra sobre el título, dentro de un círculo suave.",
+          "default": "none",
+          "options": [
+            { "value": "none", "label": "Ninguno" },
+            { "value": "check-mark", "label": "Verificado" },
+            { "value": "leaf", "label": "Hoja" },
+            { "value": "plant", "label": "Planta" },
+            { "value": "heart", "label": "Corazón" },
+            { "value": "truck", "label": "Camión de envío" },
+            { "value": "box", "label": "Caja / paquete" },
+            { "value": "return", "label": "Devoluciones" },
+            { "value": "padlock", "label": "Pago seguro" },
+            { "value": "star", "label": "Estrella" },
+            { "value": "bottle", "label": "Frasco" },
+            { "value": "recycle", "label": "Reciclaje" }
+          ]
         },
         {
           "type": "inline_richtext",

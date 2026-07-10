@@ -1,0 +1,171 @@
+{%- comment -%}
+  Tienda Lisbon — Cinta de beneficios en bucle continuo.
+  Sin JavaScript: la lista se duplica (aria-hidden) y un keyframe
+  desplaza el track un 50%. Con "reducir movimiento" queda estática.
+{%- endcomment -%}
+
+{%- style -%}
+  #Marquee-{{ section.id }} {
+    --marquee-duration: {{ section.settings.velocidad }}s;
+    padding-top: {{ section.settings.padding_vertical }}px;
+    padding-bottom: {{ section.settings.padding_vertical }}px;
+    overflow: hidden;
+  }
+
+  #Marquee-{{ section.id }} .marquee__track {
+    display: flex;
+    width: max-content;
+    animation: lisbon-marquee var(--marquee-duration) linear infinite;
+  }
+
+  {%- if section.settings.pausar_hover %}
+    #Marquee-{{ section.id }}:hover .marquee__track,
+    #Marquee-{{ section.id }}:focus-within .marquee__track {
+      animation-play-state: paused;
+    }
+  {%- endif %}
+
+  #Marquee-{{ section.id }} .marquee__list {
+    display: flex;
+    align-items: center;
+    list-style: none;
+    margin: 0;
+    padding: 0;
+  }
+
+  #Marquee-{{ section.id }} .marquee__item {
+    display: flex;
+    align-items: center;
+    white-space: nowrap;
+    text-transform: uppercase;
+    letter-spacing: 0.14em;
+    font-size: 1.15rem;
+    font-weight: 500;
+  }
+
+  #Marquee-{{ section.id }} .marquee__sep {
+    margin: 0 2.4rem;
+    color: var(--rose-gold, #C0876F);
+    font-size: 0.9em;
+  }
+
+  @keyframes lisbon-marquee {
+    from { transform: translateX(0); }
+    to   { transform: translateX(-50%); }
+  }
+
+  @media (prefers-reduced-motion: reduce) {
+    #Marquee-{{ section.id }} .marquee__track {
+      animation: none;
+      width: 100%;
+      justify-content: center;
+    }
+    #Marquee-{{ section.id }} .marquee__list[aria-hidden='true'] {
+      display: none;
+    }
+    #Marquee-{{ section.id }} .marquee__list {
+      flex-wrap: wrap;
+      justify-content: center;
+      row-gap: 0.6rem;
+    }
+  }
+{%- endstyle -%}
+
+<div
+  id="Marquee-{{ section.id }}"
+  class="marquee color-{{ section.settings.color_scheme }} gradient"
+>
+  <div class="marquee__track">
+    {%- for copia in (1..2) -%}
+      <ul
+        class="marquee__list"
+        role="list"
+        {% if copia == 2 %}aria-hidden="true"{% endif %}
+      >
+        {%- for block in section.blocks -%}
+          <li class="marquee__item" {{ block.shopify_attributes }}>
+            <span>{{ block.settings.texto | escape }}</span>
+            <span class="marquee__sep" aria-hidden="true">{{ section.settings.separador | default: '✦' }}</span>
+          </li>
+        {%- endfor -%}
+      </ul>
+    {%- endfor -%}
+  </div>
+</div>
+
+{% schema %}
+{
+  "name": "Cinta de beneficios",
+  "tag": "section",
+  "class": "section section-marquee",
+  "disabled_on": {
+    "groups": ["header", "footer"]
+  },
+  "settings": [
+    {
+      "type": "range",
+      "id": "velocidad",
+      "min": 10,
+      "max": 60,
+      "step": 2,
+      "unit": "s",
+      "label": "Duración del bucle",
+      "info": "Más segundos = movimiento más lento y elegante.",
+      "default": 28
+    },
+    {
+      "type": "text",
+      "id": "separador",
+      "label": "Separador entre mensajes",
+      "default": "✦"
+    },
+    {
+      "type": "checkbox",
+      "id": "pausar_hover",
+      "label": "Pausar al pasar el ratón",
+      "default": true
+    },
+    {
+      "type": "color_scheme",
+      "id": "color_scheme",
+      "label": "Esquema de color",
+      "default": "scheme-4"
+    },
+    {
+      "type": "range",
+      "id": "padding_vertical",
+      "min": 8,
+      "max": 40,
+      "step": 2,
+      "unit": "px",
+      "label": "Espaciado vertical",
+      "default": 14
+    }
+  ],
+  "blocks": [
+    {
+      "type": "mensaje",
+      "name": "Mensaje",
+      "settings": [
+        {
+          "type": "text",
+          "id": "texto",
+          "label": "Texto",
+          "default": "Envío en 24-72h"
+        }
+      ]
+    }
+  ],
+  "presets": [
+    {
+      "name": "Cinta de beneficios",
+      "blocks": [
+        { "type": "mensaje", "settings": { "texto": "Envío en 24-72h a toda España" } },
+        { "type": "mensaje", "settings": { "texto": "100% original de Corea" } },
+        { "type": "mensaje", "settings": { "texto": "Centella y noni para tu piel" } },
+        { "type": "mensaje", "settings": { "texto": "-10% al unirte al Club Lisbon" } }
+      ]
+    }
+  ]
+}
+{% endschema %}
