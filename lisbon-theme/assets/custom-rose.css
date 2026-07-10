@@ -388,7 +388,8 @@ html {
 .scroll-trigger.animate--slide-in {
   --slide-distance: 2.6rem;
   animation: rose-slide-in 0.9s cubic-bezier(0.16, 1, 0.3, 1) both;
-  animation-delay: calc(var(--animation-order, 0) * 0.09s);
+  /* Tope de 0.45s: en grids largos el escalonado no se eterniza */
+  animation-delay: min(calc(var(--animation-order, 0) * 0.09s), 0.45s);
 }
 
 @keyframes rose-slide-in {
@@ -447,6 +448,18 @@ html {
 }
 .shopify-section-header-sticky {
   box-shadow: 0 6px 24px -18px rgba(46, 42, 43, 0.35);
+}
+
+/* Efecto cristal al quedarse pegado arriba ------------------- */
+.shopify-section-header-sticky .header-wrapper {
+  background: #FCFBFA;
+}
+@supports (backdrop-filter: blur(1px)) or (-webkit-backdrop-filter: blur(1px)) {
+  .shopify-section-header-sticky .header-wrapper {
+    background: rgba(252, 251, 250, 0.82);
+    -webkit-backdrop-filter: blur(14px) saturate(160%);
+    backdrop-filter: blur(14px) saturate(160%);
+  }
 }
 
 /* Selección de texto con acento de marca -------------------- */
@@ -553,6 +566,125 @@ a.link.underlined-link {
 .cart__dynamic-checkout-buttons,
 .cart__checkout-button {
   font-weight: 600;
+}
+
+/* ============================================================
+   MICRO-INTERACCIONES — la capa que se siente "cara"
+   ============================================================ */
+
+/* Quick-add: aparece al pasar el ratón (desktop); en táctil
+   siempre visible. focus-within lo revela también con teclado. */
+@media screen and (min-width: 990px) {
+  .card-wrapper .quick-add {
+    opacity: 0;
+    transform: translateY(6px);
+    transition: opacity 0.3s ease, transform 0.3s cubic-bezier(0.16, 1, 0.3, 1);
+  }
+  .card-wrapper:hover .quick-add,
+  .card-wrapper:focus-within .quick-add {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+/* Shimmer de carga: gradiente animado detrás de imágenes lazy;
+   la foto lo tapa al llegar. Sin JS y sin saltos de layout.     */
+.card__media .media,
+.collection-list .card__media .media {
+  background: linear-gradient(100deg, #F4F1EC 40%, #FAF7F4 50%, #F4F1EC 60%);
+  background-size: 200% 100%;
+  animation: rose-shimmer 1.6s linear infinite;
+}
+@keyframes rose-shimmer {
+  from { background-position: 200% 0; }
+  to   { background-position: -200% 0; }
+}
+
+/* "Ver todo": flecha que avanza al hover ---------------------- */
+a.underlined-link::after {
+  content: "→";
+  display: inline-block;
+  margin-left: 0.4em;
+  transition: transform 0.3s cubic-bezier(0.16, 1, 0.3, 1);
+}
+a.underlined-link:hover::after {
+  transform: translateX(4px);
+}
+
+/* Formularios: foco cálido, newsletter tipo píldora ----------- */
+.field__input:focus,
+.select__select:focus,
+.customer .field input:focus {
+  border-color: var(--rose-gold);
+}
+.field__input::placeholder {
+  opacity: 0.55;
+}
+.newsletter-form__field-wrapper .field__input {
+  border-radius: 999px;
+  padding-left: 2rem;
+}
+.newsletter-form__field-wrapper .field__button {
+  right: 0.6rem;
+}
+
+/* Cart drawer: panel premium con esquina suave ---------------- */
+cart-drawer.drawer {
+  background-color: rgba(46, 42, 43, 0.45);
+}
+@supports (backdrop-filter: blur(1px)) or (-webkit-backdrop-filter: blur(1px)) {
+  cart-drawer.drawer {
+    -webkit-backdrop-filter: blur(3px);
+    backdrop-filter: blur(3px);
+  }
+}
+.cart-drawer .drawer__inner {
+  border-radius: 16px 0 0 16px;
+}
+.cart-drawer .drawer__heading {
+  font-family: var(--font-heading-family);
+  font-weight: 300;
+  font-size: 2.2rem;
+  letter-spacing: 0.01em;
+}
+.cart-drawer .cart__checkout-button {
+  width: 100%;
+}
+
+/* Búsqueda predictiva: tarjeta flotante limpia ---------------- */
+.predictive-search {
+  border-radius: 14px;
+  box-shadow: 0 24px 48px -24px rgba(46, 42, 43, 0.25);
+  overflow: hidden;
+}
+.predictive-search__image {
+  border-radius: 8px;
+}
+
+/* Botón secundario: el hover declara su intención ------------- */
+.button--secondary:not([disabled]):hover {
+  --color-button-text: 168, 106, 84;
+  color: var(--rose-gold-deep);
+  box-shadow: 0 0 0 1px var(--rose-gold-deep) inset, 0 8px 22px -8px rgba(46, 42, 43, 0.25);
+}
+
+/* Detalles de sistema: scrollbar fino y checks de marca ------- */
+html {
+  scrollbar-width: thin;
+  scrollbar-color: rgba(46, 42, 43, 0.18) transparent;
+}
+::-webkit-scrollbar {
+  width: 10px;
+}
+::-webkit-scrollbar-thumb {
+  background: rgba(46, 42, 43, 0.18);
+  border-radius: 999px;
+  border: 3px solid transparent;
+  background-clip: content-box;
+}
+input[type="checkbox"],
+input[type="radio"] {
+  accent-color: var(--rose-gold-deep);
 }
 
 /* ============================================================
