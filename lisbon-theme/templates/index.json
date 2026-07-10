@@ -79,6 +79,34 @@
         "padding_vertical": 14
       }
     },
+    "compra_marca": {
+      "type": "collection-list",
+      "disabled": true,
+      "blocks": {
+        "cat_skin1004": {
+          "type": "featured_collection",
+          "settings": {
+            "collection": "skin1004"
+          }
+        },
+        "cat_celimax": {
+          "type": "featured_collection",
+          "settings": {
+            "collection": "celimax"
+          }
+        }
+      },
+      "block_order": ["cat_skin1004", "cat_celimax"],
+      "settings": {
+        "title": "Compra por marca",
+        "heading_size": "h2",
+        "image_ratio": "portrait",
+        "columns_desktop": 2,
+        "color_scheme": "scheme-5",
+        "show_view_all": false,
+        "columns_mobile": "2"
+      }
+    },
     "compra_tipo": {
       "type": "collection-list",
       "blocks": {
@@ -215,6 +243,51 @@
         "height": "medium",
         "desktop_image_width": "medium",
         "layout": "image_first",
+        "content_layout": "no-overlap",
+        "desktop_content_position": "middle",
+        "desktop_content_alignment": "left",
+        "section_color_scheme": "scheme-1",
+        "color_scheme": "scheme-1"
+      }
+    },
+    "ingrediente_celimax": {
+      "type": "image-with-text",
+      "disabled": true,
+      "blocks": {
+        "caption": {
+          "type": "caption",
+          "settings": {
+            "caption": "El ingrediente · Noni",
+            "text_style": "caption-with-letter-spacing",
+            "text_size": "medium"
+          }
+        },
+        "heading": {
+          "type": "heading",
+          "settings": {
+            "heading": "Noni: energía y elasticidad para una piel viva",
+            "heading_size": "h1"
+          }
+        },
+        "text": {
+          "type": "text",
+          "settings": {
+            "text": "<p>El extracto de noni de celimax, rico en vitaminas y antioxidantes, revitaliza la piel apagada, refuerza su elasticidad y le devuelve el brillo sano de una rutina bien cuidada.</p>"
+          }
+        },
+        "button": {
+          "type": "button",
+          "settings": {
+            "button_label": "Ver celimax",
+            "button_link": "shopify://collections/celimax"
+          }
+        }
+      },
+      "block_order": ["caption", "heading", "text", "button"],
+      "settings": {
+        "height": "medium",
+        "desktop_image_width": "medium",
+        "layout": "text_first",
         "content_layout": "no-overlap",
         "desktop_content_position": "middle",
         "desktop_content_alignment": "left",
@@ -466,7 +539,9 @@
     "hero_banner",
     "marquee_beneficios",
     "featured_bestsellers",
+    "compra_marca",
     "ingrediente_skin1004",
+    "ingrediente_celimax",
     "compra_tipo",
     "featured_novedades",
     "ritual",
