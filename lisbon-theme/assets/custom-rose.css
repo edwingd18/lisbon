@@ -27,6 +27,10 @@
   /* Color de ingrediente por marca */
   --brand-skin1004: #7C9A6E; /* verde centella */
   --brand-celimax: #C56B57;  /* rojo noni */
+
+  /* Escala de tracking unificada para versalitas */
+  --track-caps: 0.08em;    /* navegación, enlaces "ver todo" */
+  --track-eyebrow: 0.12em; /* announcement bar, eyebrows */
 }
 
 /* ---- Cuerpo: legibilidad y respiro -------------------------- */
@@ -52,6 +56,34 @@ h1, h2, h3, h4, h5,
   font-weight: 300;
   letter-spacing: 0.005em;
   line-height: 1.12;
+}
+
+/* Escala fluida: los titulares crecen con la pantalla, sin
+   saltos de breakpoint. El hero luce grande donde cabe.       */
+.h0 {
+  font-size: clamp(3.6rem, 2.4rem + 3vw, 6.2rem);
+}
+h1, .h1 {
+  font-size: clamp(3rem, 2.2rem + 2vw, 4.8rem);
+}
+
+/* Saltos de línea equilibrados y párrafos sin viudas ---------- */
+h1, h2, h3,
+.h0, .h1, .h2,
+.banner__heading,
+.title {
+  text-wrap: balance;
+}
+.rte p,
+p.rte {
+  text-wrap: pretty;
+}
+
+/* Medida de lectura cómoda en bloques editoriales ------------- */
+.rich-text__text,
+.image-with-text__text:not(.image-with-text__text--caption),
+.newsletter__subheading {
+  max-inline-size: 60ch;
 }
 
 /* Títulos de sección: centrados, ligeros y con aire ---------- */
@@ -95,10 +127,11 @@ a:not(.button):not(.card__heading a) {
   text-underline-offset: 0.2em;
 }
 
-/* ---- Precios: cuerpo, discretos ---------------------------- */
+/* ---- Precios: cuerpo, discretos, dígitos estables ---------- */
 .price {
   font-family: var(--font-body-family);
   letter-spacing: 0.01rem;
+  font-variant-numeric: tabular-nums;
 }
 
 /* Scroll suave al navegar por anclas ------------------------- */
@@ -370,7 +403,7 @@ html {
   background: rgba(46, 42, 43, 0.35);
   color: #fff;
   text-transform: uppercase;
-  letter-spacing: 0.12em;
+  letter-spacing: var(--track-eyebrow);
   font-size: 1.2rem;
   font-weight: 500;
   opacity: 0;
@@ -428,7 +461,7 @@ html {
 .announcement-bar__message,
 .announcement-bar p {
   text-transform: uppercase;
-  letter-spacing: 0.12em;
+  letter-spacing: var(--track-eyebrow);
   font-size: 1.15rem;
   font-weight: 500;
 }
@@ -437,7 +470,7 @@ html {
 .header__menu-item span,
 .header__active-menu-item {
   text-transform: uppercase;
-  letter-spacing: 0.08em;
+  letter-spacing: var(--track-caps);
   font-size: 1.3rem;
   font-weight: 500;
 }
@@ -521,7 +554,7 @@ s.price-item {
 .collection__view-all .link,
 a.link.underlined-link {
   text-transform: uppercase;
-  letter-spacing: 0.08em;
+  letter-spacing: var(--track-caps);
   font-size: 1.2rem;
   font-weight: 500;
 }
@@ -695,7 +728,7 @@ input[type="radio"] {
 .card__information .caption-with-letter-spacing,
 .card-information .caption-with-letter-spacing {
   text-transform: uppercase;
-  letter-spacing: 0.1em;
+  letter-spacing: var(--track-eyebrow);
   font-size: 1.1rem;
   font-weight: 500;
   color: var(--rose-gold-deep);
